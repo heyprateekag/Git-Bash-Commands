@@ -16,3 +16,13 @@ cd ..         = to come one directory back
 git help      = to take any help from git
 
 git add .     = to add every subfolder or file into git (if we want to add just the specific files then we can w               write their names in place of .)
+
+git commit -m "message" = to commit the changes with a "message" (msg is completely optional)
+
+SHA1 = encrypted key 
+
+git log                 = to check the log(date, time, author, SHA1) of commits performed
+
+git status              = checks wheather changes are done after commit
+
+git log -n 2            = to just check/see last 2 commits performed
