@@ -1,0 +1,18 @@
+**for git bash**
+where git     = to find the address of git.exe
+
+git --version = to know the version of the git installed
+
+ls            = for the directory names
+
+ls -la        = for the hidden directory names as well
+
+cd address    = for going to any folder
+
+ctrl l        = for clearing the cmd
+
+cd ..         = to come one directory back
+
+git help      = to take any help from git
+
+git add .     = to add every subfolder or file into git (if we want to add just the specific files then we can w               write their names in place of .)
