@@ -3,6 +3,8 @@ where git     = to find the address of git.exe
 
 git --version = to know the version of the git installed
 
+git init      = to initialise any repository (it will initialise for the folder in which it will be)
+
 ls            = for the directory names
 
 ls -la        = for the hidden directory names as well
@@ -21,8 +23,15 @@ git commit -m "message" = to commit the changes with a "message" (msg is complet
 
 SHA1 = encrypted key 
 
-git log                 = to check the log(date, time, author, SHA1) of very first commit performed
+git log                 = to check the log(date, time, author, SHA1) of every commit performed
 
 git status              = checks the status of the git (commit need to be performed or add to be performed or n                         nothing).
 
 git log -n 2            = to just check/see last 2 commits performed (any number could be there in place of 2).
+
+git log --author="Author Name" = to check the log of a particular author
+
+git log --since=2020-06-20     = to check the log since a particular date (we can also use until).
+
+
+
