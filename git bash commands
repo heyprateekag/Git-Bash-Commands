@@ -21,8 +21,8 @@ git commit -m "message" = to commit the changes with a "message" (msg is complet
 
 SHA1 = encrypted key 
 
-git log                 = to check the log(date, time, author, SHA1) of commits performed
+git log                 = to check the log(date, time, author, SHA1) of very first commit performed
 
-git status              = checks wheather changes are done after commit
+git status              = checks the status of the git (commit need to be performed or add to be performed or n                         nothing).
 
-git log -n 2            = to just check/see last 2 commits performed
+git log -n 2            = to just check/see last 2 commits performed (any number could be there in place of 2).
