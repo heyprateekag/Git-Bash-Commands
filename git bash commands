@@ -17,9 +17,11 @@ cd ..         = to come one directory back
 
 git help      = to take any help from git
 
-git add .     = to add every subfolder or file into git (if we want to add just the specific files then we can w               write their names in place of .)
+git add .     = to add every subfolder or file into git (if we want to add just the specific files then we can w               write their names in place of .) Through this command our repository moves to the staging area.
 
-git commit -m "message" = to commit the changes with a "message" (msg is completely optional)
+git add filename.txt filename.extension = if we want to add a particular file/files into the staging area.
+
+git commit -m "message" = to commit the changes with a "message" (for commit there should be something in the s                         staging area which will come by add command)
 
 SHA1 = encrypted key 
 
@@ -27,11 +29,47 @@ git log                 = to check the log(date, time, author, SHA1) of every co
 
 git status              = checks the status of the git (commit need to be performed or add to be performed or n                         nothing).
 
-git log -n 2            = to just check/see last 2 commits performed (any number could be there in place of 2).
+git log -n 2                   = to just check/see last 2 commits performed (any number could be there in place of 2).
 
 git log --author="Author Name" = to check the log of a particular author
 
 git log --since=2020-06-20     = to check the log since a particular date (we can also use until).
 
+git diff                       = it shows the changes done in repository which is not commited or added to the  s                                staging area yet but is saved in the file.
 
+git diff --staged              = it shows the changes which is staged but is not commited yet
 
+git rm filename.txt            = if a particular file is explicitly deleted from the folder then git status will show an error and to clear things up we use this command. This command deletes the file from the repository too and after this we will have to commit to clear the git status. (this is not a good way to delete the file)
+
+git rm filename.txt            = same command is used to delete the file even from the folder and then we need to do the commit and every things done. File deleted from the folder file deleted from the repository and status cleaned. This totally delete the file (doesnt send the file in the recycle bin).
+
+*git checkout -- fileName.txt  = if we want to restore the last commit as we have changed our file and some error has occured so we want to go to the last commit where every thing was fine followed by the following reset command.
+
+*git checkout <some characters of SHA1> -- fileName.txt = if we want to go back to a particular commit (SHA1 will be that commit's SHA1 where we want to go). After this changes will go to the staging area (we can check the changes through git diff --staged) and after this we will do the below reset command to bring required commit back. (not sure, try this or we will have to add the changes and then commit to go to the required commit)
+
+*git reset HEAD fileName.txt   = to bring a file back from the staging area
+
+*git commit --amend -m "my message" = if we want to make some changes in the last commit without creating another commit (this will create another sha1 but will not show the last commit) (this is obviously done after add command (if we want to add something to the file)).
+
+*git commit --amend -m "another message" = if we want to change the msg of the last commit without creating another commit (this doesnt require add command) (this will also change the sha1 but will not show the last commit).
+
+*press q = to come out of a running command (like after git log)
+
+*git reset --hard <SHA1> = to go back to another commit  and change to the local file as well. This will gonna change the git log as well.
+
+*git reset <SHA1> = to go back to another commit but it will not directly change the local file. It will change the log directly. It allows us to check the difference between the commit we want to go to and the last commit, which we can check by git diff command. To save the changes to our local file we can add the changes by add command and then can commit the changes (if we dont wanna add another commit so we can commit through amend which will change the SHA1 of the destination commit)
+
+*git clean -n = tells you that which files git will delete (even if those files is not in the repository but is in the folder for which git is initialised) (it will not show the files which are in staging area or the files which are in the repository) and then can run the command git clean -f to delete those files.
+
+*git clean -f = deletes the files which are in the folder in which git is initialised but are not in staging area or inside repository.
+
+*.gitignore = file which we need to add into the git repository (inside which we can write the names of the files and folder which we want git to ignore(not put into the repository and not show any warning at the time of status check in short we want git to ignore that file or folder)
+
+	*# = anything written in front of hash symbol acts as a comment
+	*folderName/ = if we want git to ignore a folder then we will have to write this command on new line
+	**.extension = if we want git to ignore all files with a particular extension
+	*!fileName.extension = if we want a particular file not be ignored by the git (if its .extension is there
+						   in the .gitignore file)
+	*fileName.extension = if we want git to ignore a particular file
+	*folder/subfolder = if we want git to ignore a subfolder
+(git will show the file or folder in the ls as ls only shows the folders or the files stored locally but git doesnt have that file if its name is written in the .gitignore file we can check by removing the fileName/folderName from the .gitignore file and then by checking the status, status will show "that file is not added in the git repo and if we again write its name in the .gitignore file and then save that file then status will only show that .gitignore file is changed, it will not show that file)
