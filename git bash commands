@@ -1,75 +1,279 @@
 **for git bash**
-where git     = to find the address of git.exe
+
+where git = to find the address of git.exe
+
 
 git --version = to know the version of the git installed
 
-git init      = to initialise any repository (it will initialise for the folder in which it will be)
 
-ls            = for the directory names
+git init = to initialise any repository (it will initialise for the folder in which it will be)
 
-ls -la        = for the hidden directory names as well
 
-cd address    = for going to any folder
+ls = for the directory names
 
-ctrl l        = for clearing the cmd
 
-cd ..         = to come one directory back
+ls -la = for the hidden directory names as well
 
-git help      = to take any help from git
 
-git add .     = to add every subfolder or file into git (if we want to add just the specific files then we can w               write their names in place of .) Through this command our repository moves to the staging area.
+cd address = for going to any folder
+
+
+ctrl l = for clearing the cmd
+
+
+cd .. = to come one directory back
+
+
+git help = to take any help from git
+
+
+git add . = to add every subfolder or file into git (if we want to add just the 
+            specific files then we can write their names in place of .) Through this command our repository moves to the staging area.
+
 
 git add filename.txt filename.extension = if we want to add a particular file/files into the staging area.
 
-git commit -m "message" = to commit the changes with a "message" (for commit there should be something in the s                         staging area which will come by add command)
+
+git commit -m "message" = to commit the changes with a "message" (for commit there should be something in the
+                          staging area which will come by add command).
+
 
 SHA1 = encrypted key 
 
-git log                 = to check the log(date, time, author, SHA1) of every commit performed
 
-git status              = checks the status of the git (commit need to be performed or add to be performed or n                         nothing).
+git log = to check the log(date, time, author, SHA1) of every commit performed in the current branch(branching
+          commands discussed in the folloing points)
 
-git log -n 2                   = to just check/see last 2 commits performed (any number could be there in place of 2).
 
-git log --author="Author Name" = to check the log of a particular author
+git status = checks the status of the git (commit need to be performed or add to be performed or 
+             nothing).
 
-git log --since=2020-06-20     = to check the log since a particular date (we can also use until).
 
-git diff                       = it shows the changes done in repository which is not commited or added to the  s                                staging area yet but is saved in the file.
+*few following points are different form of logs(you can ignore if you want)*
 
-git diff --staged              = it shows the changes which is staged but is not commited yet
 
-git rm filename.txt            = if a particular file is explicitly deleted from the folder then git status will show an error and to clear things up we use this command. This command deletes the file from the repository too and after this we will have to commit to clear the git status. (this is not a good way to delete the file)
+git log --oneline = if we want to see the log in short (it will only show the partial SHA1 and the commit 
+                     message).
 
-git rm filename.txt            = same command is used to delete the file even from the folder and then we need to do the commit and every things done. File deleted from the folder file deleted from the repository and status cleaned. This totally delete the file (doesnt send the file in the recycle bin).
 
-*git checkout -- fileName.txt  = if we want to restore the last commit as we have changed our file and some error has occured so we want to go to the last commit where every thing was fine followed by the following reset command.
+git log -n 2 = to just check/see last 2 commits performed (any number could be there in place of 2).
 
-*git checkout <some characters of SHA1> -- fileName.txt = if we want to go back to a particular commit (SHA1 will be that commit's SHA1 where we want to go). After this changes will go to the staging area (we can check the changes through git diff --staged) and after this we will do the below reset command to bring required commit back. (not sure, try this or we will have to add the changes and then commit to go to the required commit)
 
-*git reset HEAD fileName.txt   = to bring a file back from the staging area
+git log --author="Author Name" = to check the log of a particular author (author name is case sensitive).
 
-*git commit --amend -m "my message" = if we want to make some changes in the last commit without creating another commit (this will create another sha1 but will not show the last commit) (this is obviously done after add command (if we want to add something to the file)).
 
-*git commit --amend -m "another message" = if we want to change the msg of the last commit without creating another commit (this doesnt require add command) (this will also change the sha1 but will not show the last commit).
+git log --since="2020-06-20" = to check the log since a particular date (similarly we can also use until and 
+                               even we can use both at a time).
 
-*press q = to come out of a running command (like after git log)
 
-*git reset --hard <SHA1> = to go back to another commit  and change to the local file as well. This will gonna change the git log as well.
+git log --since="n(integer) week ago" = log from n week age
 
-*git reset <SHA1> = to go back to another commit but it will not directly change the local file. It will change the log directly. It allows us to check the difference between the commit we want to go to and the last commit, which we can check by git diff command. To save the changes to our local file we can add the changes by add command and then can commit the changes (if we dont wanna add another commit so we can commit through amend which will change the SHA1 of the destination commit)
 
-*git clean -n = tells you that which files git will delete (even if those files is not in the repository but is in the folder for which git is initialised) (it will not show the files which are in staging area or the files which are in the repository) and then can run the command git clean -f to delete those files.
+git log --grep="commit message" = log of that particular commit
 
-*git clean -f = deletes the files which are in the folder in which git is initialised but are not in staging area or inside repository.
 
-*.gitignore = file which we need to add into the git repository (inside which we can write the names of the files and folder which we want git to ignore(not put into the repository and not show any warning at the time of status check in short we want git to ignore that file or folder)
+git log <partial SHA1>..<partial SHA1> = to see the log between(including) two commits.
 
-	*# = anything written in front of hash symbol acts as a comment
-	*folderName/ = if we want git to ignore a folder then we will have to write this command on new line
-	**.extension = if we want git to ignore all files with a particular extension
-	*!fileName.extension = if we want a particular file not be ignored by the git (if its .extension is there
+
+git log --format=oneline = will show the log in one line but with full SHA1
+
+
+git log --format=short = will show the log without the date and time
+
+
+git log --format=fuller = will show the log with detailed information
+
+
+git log --format=email = will give the log in the email type of format(from, date, subject)
+
+
+git diff = it shows the changes done in repository which is not commited or added to the staging area yet
+           but is saved in the file.
+
+
+git diff --staged = it shows the changes which is staged but is not commited yet
+
+
+git rm filename.txt            = if a particular file is explicitly deleted from the folder then git status 
+                                 will show an error and to clear things up we use this command. This command deletes the file from the repository too and after this we will have to commit to clear the git status. (this is not a good way to delete the file)
+
+
+git rm filename.txt            = same command is used to delete the file even from the folder and then we need 
+                                 to do the commit and every things done. File deleted from the folder file deleted from the repository and status cleaned. This totally delete the file (doesnt send the file in the recycle bin).
+
+
+git checkout -- fileName.txt  = if we want to restore the last commit as we have changed our file and some 
+                                 error has occured so we want to go to the last commit where every thing was fine followed by the following reset command.
+
+
+git checkout <some characters of SHA1> -- fileName.txt = if we want to go back to a particular commit (SHA1 
+                                                          will be that commit's SHA1 where we want to go). After this changes will go to the staging area (we can check the changes through git diff --staged) and after this we will do the below reset command to bring required commit back. (not sure, try this or we will have to add the changes and then commit to go to 
+                                                          the required commit)
+
+
+git reset HEAD fileName.txt = to bring a file back from the staging area
+
+
+git commit --amend -m "my message" = if we want to make some changes in the last commit without creating 
+                                      another commit (this will create another sha1 but will not show the last commit) (this is obviously done after add command (if we want to add something to the file)).
+
+
+git commit --amend -m "another message" = if we want to change the msg of the last commit without creating 
+                                           another commit (this doesnt require add command) (this will also change the sha1 but will not show the last commit).
+
+
+press q = to come out of a running command (like after git log)
+
+
+git reset --hard <SHA1> = to go back to another commit  and change to the local file as well. This will gonna 
+                           change the git log as well.
+
+
+git reset <SHA1> = to go back to another commit but it will not directly change the local file. It will change
+                    the log directly. It allows us to check the difference between the commit we want to go to and the last commit, which we can check by git diff command. To save the changes to our local file we can add the changes by add command and then can commit the changes (if we dont wanna add another commit so we can commit through amend which will change the SHA1 of the destination commit)
+
+
+git reset HEAD~n(integer) = if we want to go back to the last nth commit
+
+
+git clean -n = tells you that which files git will delete (even if those files is not in the repository but is
+                in the folder for which git is initialised) (it will not show the files which are in staging area or the files which are in the repository or the ignored (ignore concept is in the following points) file) and then can run the command git clean -f to delete those files.
+
+
+git clean -f = deletes the files which are in the folder in which git is initialised but are not in staging 
+                area or inside repository.
+
+
+.gitignore = file which we need to add into the git repository (inside which we can write the names of the 
+              files and folder which we want git to ignore(not put into the repository and not show any warning at the time of status check in short we want git to ignore that file or folder)
+
+	# = anything written in front of hash symbol acts as a comment
+	folderName/ = if we want git to ignore a folder then we will have to write this command on new line
+	*.extension = if we want git to ignore all files with a particular extension
+	!fileName.extension = if we want a particular file not be ignored by the git (if its .extension is there
 						   in the .gitignore file)
-	*fileName.extension = if we want git to ignore a particular file
-	*folder/subfolder = if we want git to ignore a subfolder
+	fileName.extension = if we want git to ignore a particular file
+	folder/subfolder = if we want git to ignore a subfolder
+
 (git will show the file or folder in the ls as ls only shows the folders or the files stored locally but git doesnt have that file if its name is written in the .gitignore file we can check by removing the fileName/folderName from the .gitignore file and then by checking the status, status will show "that file is not added in the git repo and if we again write its name in the .gitignore file and then save that file then status will only show that .gitignore file is changed, it will not show that file)
+
+
+git rm --cached fileName.extension = if we want git to ignore a file which is already in the repository then 
+                                      we first have to remove it from the repository through this command and then we will have to write its name in the .gitignore file and then we need to add and do the commit and all done).
+
+
+git doesnt keep the track of the empty sub folder (if created inside the folder for which git is initialised).
+ If we want git to keep the track of the empty folder then we can make a .anyName (fileName) file inside that folder so that git start keeping the track of that folder and which is still empty (as .anyName file doesnt mean anything).
+
+
+git ls-tree HEAD = to know SHA1 of all the commits done and to know which files(denoted by blob in the 
+                    result)/folders(denoted by tree in the result) our HEAD has pointed to till the last commit(in short we can say that it shows the file and folder names which are in the repository).
+
+
+git ls-tree <part of SHA1> = it will show all the files and folders in the repository till that particular sha1
+                              (or we can say till that particular commit).
+
+
+
+
+git branch branchName(any) = (use normal branchName without any number or spaces) creates a new branch of your
+                              repository with name branchName. This will make the sub branch of the branch we are into right now.
+
+
+git branch = tells you how many branches your repository have (the branch before which * sign is there, that 
+             is the branch our head is currently pointing to).
+
+
+git checkout branchName = makes head to point to the branchName and starts showing the files and folders as it
+                          is in that particular branch in the local storage and if we again switch to another branch then it will start showing new/lesser things as it is in that particular branch
+
+
+git commit -am "message" = shortcut for the add + commit in one command (if we have added something in the 
+                           current files and we want to commit that).
+
+
+git checkout -b branchName = this will make a new branch and will switch into that new branch (mix of branch 
+                             and checkout command).
+
+
+git log --graph --oneline --all --decorate = to check the log of all the branches made of the repository in the
+                                             in the form of a graph.
+
+
+git log --oneline --all = to check the log of all the branches made of the repository in one line.
+
+
+git checkout -- fileName.txt = it undo the changes made in the file and go backs to the state it was in the last
+                               commit in the repository.
+
+
+git diff branchName1..branchName2 = gives the difference between these two branches.
+
+
+git branch -m oldBranchName newBranchName = it moves the contents of oldBranchName to newBranchName (in layman 
+                                            language we can say that it is used to rename our branch)
+
+
+git branch -d branchName = it deletes the branch (we should not be in the branch which we wants to delete and 
+                           we should have merged the changes(if made) made in the branch with the master branch, otherwise it will show the error).
+
+
+git branch -D branchName = if we have made some changes in the branch branchName and have not merged it with
+                           master branch and still we want to delete that branch then this command is required.
+
+
+git merge branchName = if we want to merge a particular branch branchName into the current branch (this is fast 
+                       forwarding)
+
+
+git merge --no-ff branchName = (not fast forward) if we want to add the changes done in the branch branchName 
+                               to the current branch (this will add the changes to the current branch and after that we need to commit to save those changes to the current branch) (branch branchName will be pointing to its commit and master will point out to new updated commit which will show that changes were done in different branch and then merged (just for the documentation clearance)) (another text editor might open after this command so we will have to save and exit from that editor(in case you dont know then search it from google that how to save and exit from that particular editor) then automatically it will get commited to the current branch(we dont need to commit in this case)).
+
+
+git merge --ff-only branchName = if we want to merge only by fast forwarding (it will ask the git cmd/bash to 
+                                 fast forward if possible otherwise abort the operation).
+
+
+git merge --abort = if we want to abort the merge operation (usually need to do when conflict occurs in the
+                    merge operation (conflict occurs when we change the same file in both the branches which we want to merge))
+
+(if conflict occurs at the time of merging the branches then we either need to abort the merging or we will have to merge them manually (as git will show both the branch's content in one file and then we will have to decide what to keep and what not to, after that we need to add and commit (this procedure will not change the other branch, it will only change the current branch)) or we will have to use a mergetool).
+
+
+git mergetool = to know the names of the merging tools available
+
+
+git mergetool -tools=toolName = to take the help of the merge tool to merge the branches which creates conflicts
+                                at the time of merging them (explore it yourself dont know if it will work just by this command).
+
+
+git stash save "message" = if we have made some changes in a branch but we are not sure that those changes are 
+                           correct (so we can't commit those changes) and we want to go to another branch(probably want to check anything) then we can stash the changes made in the present branch and use this command to stash the changes(this will remove those changes from the current branch but will save in the stash and later we can get back those changes).
+
+
+git stash list = it will show the list of all the saved stashes to the git bash(cmd).
+
+
+git stash show stash@{n(integer)} = gives the number of lines added to which function in the stash and how many
+                                    lines deleted to the git bash(cmd)(n is the index of the particular stash which we wanna know about).
+
+
+git stash show -p stash@{n(integer)} = gives the detailed stash with the lines of code(somewhat like diff
+                                       command) to the git bash(cmd)(n is the index of the particular stash which we wanna know about).
+
+
+git stash pop stash@{n(integer)} = it will bring our stash data back (n is the index of the particular stash 
+                                   which we wanna know about). It will cut the stash@{n} from the stash data and bring it back in the branch.
+
+
+git stash apply stash@{n(integer)} = it will bring our stash data back (n is the index of the particular stash 
+                                   which we wanna know about). It will copy the stash@{n} from the stash data and bring it back in the branch.
+
+(if we still don't wanna save the changes then we again have to save those lines to another stash even if we have not added anything in the stash data, so I would recommend to use the pop command so that your stash should not contain two stashes of same data)
+(or if we want to apply a particular stash to multiple branches then we can use apply command so that it not gets deleted from the stash memory(conflict may occur at the time of applying stash to another branch)).
+
+
+git stash drop stash@{n(integer)} = if we want to delete a particular stash from the stash list.
+
+
+git stash clear = if we want to delete all the stashes.
