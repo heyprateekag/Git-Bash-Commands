@@ -197,7 +197,7 @@ git checkout -b branchName = this will make a new branch and will switch into th
 
 
 git log --graph --oneline --all --decorate = to check the log of all the branches made of the repository in the
-                                             in the form of a graph.
+                                             in the form of a graph(there should be branching and merging to get the graph of your repository).
 
 
 git log --oneline --all = to check the log of all the branches made of the repository in one line.
