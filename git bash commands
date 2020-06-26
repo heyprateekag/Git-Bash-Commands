@@ -277,3 +277,20 @@ git stash drop stash@{n(integer)} = if we want to delete a particular stash from
 
 
 git stash clear = if we want to delete all the stashes.
+
+
+git remote add origin(or any name(alias)(genrally recommended origin)) <link of the git repository> = to 
+                                    connect the local repository to the remote repository(on github here).
+
+
+git remote = to check the pull requests (we will get the alias of those)
+
+
+git remote -v = to check the pull and fetch requests in detail
+
+
+cat .git/config = to see more about the remote repository
+
+
+git push -u <alias>(origin used above) branchName = to push the local repository to the remote repository(it
+                                                    may ask the username and password which you need to provide the username and password of the github(if used) account).
