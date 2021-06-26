@@ -125,8 +125,8 @@ git commit --amend -m "another message" = if we want to change the msg of the la
 press q = to come out of a running command (like after git log)
 
 
-git reset --hard <SHA1> = to go back to another commit  and change to the local file as well. This will gonna 
-                           change the git log as well.
+git reset --hard <SHA1> = to go back to another commit  and change to the local file as well. This  
+                          will gonna change the git log as well.
 
 
 git reset <SHA1> = to go back to another commit but it will not directly change the local file. It will change
@@ -279,8 +279,8 @@ git stash drop stash@{n(integer)} = if we want to delete a particular stash from
 git stash clear = if we want to delete all the stashes.
 
 
-git remote add origin(or any name(alias)(genrally recommended origin)) <link of the git repository> = to 
-                                    connect the local repository to the remote repository(on github here).
+git remote add origin(alias) <link> = to connect the local repository to the remote repository(on github here) 
+                                      (we can use any alias name but generally origin is used in the community) (link of the remote git repository is written to which we want to connect our local repository).
 
 
 git remote = to check the pull requests (we will get the alias of those)
@@ -293,4 +293,14 @@ cat .git/config = to see more about the remote repository
 
 
 git push -u <alias>(origin used above) branchName = to push the local repository to the remote repository(it
-                                                    may ask the username and password which you need to provide the username and password of the github(if used) account).
+                                                    may ask the username and password which you need to provide the username and password of the github(if used) account)(-u is used to keep the track of the local and remote repository).
+
+
+pwd = present working directory
+
+
+git clone <web url> folderName = used to download any remote repository folderName (in which we want remote 
+                                 repository to be downloaded) (web url of any git remote repository which you wanna download) (we should download any remote repository in the foler for which local repository is not initialised)(if we will not use the folderName then folder name will be same as the remote git repository name).
+
+
+git push = if we want to push the changes made in the local repository to the remote repository.
